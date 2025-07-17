@@ -1,0 +1,12 @@
+{
+    "name": "tyrads/php-sdk-example",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Tyrads\\PhpSdkExample\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
