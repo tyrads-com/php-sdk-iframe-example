@@ -1,0 +1,12 @@
+{
+    "name": "tyrads/php-sdk-example",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Tyrads\\PhpSdkExample\\": "src/"
+        }
+    },
+    "require": {
+        "tyrads/tyrads-sdk": "^0.1.0"
+    }
+}
