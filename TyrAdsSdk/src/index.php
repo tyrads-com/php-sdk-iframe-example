@@ -30,10 +30,12 @@ try {
     $TOKEN   = $authSign->getToken();
     $SUCCESS = !empty($TOKEN);
     $IFRAME_URL = $tyrAdsSdk->iframeUrl($TOKEN);
+    $IFRAME_PREMIUM_URL = $tyrAdsSdk->iframePremiumWidget($TOKEN);
 } catch (\Exception $e) {
     $SUCCESS = false;
     $TOKEN = '';
     $IFRAME_URL = '';
+    $IFRAME_PREMIUM_URL = '';
     $error = $e->getMessage();
 }
 
@@ -52,7 +54,12 @@ try {
             <h1 style="color: #2d3748; font-size: 2rem; margin-bottom: 16px;">TyrAds SDK Iframe</h1>
             <h3 style="color: #4a5568; font-size: 1.1rem; margin-bottom: 8px;">Generated Token</h3>
             <textarea rows="4" cols="50" readonly style="width: 100%; font-size: 1rem; padding: 8px; border-radius: 6px; border: 1px solid #cbd5e0; background: #f1f5f9; margin-bottom: 24px;"><?php echo htmlspecialchars($TOKEN); ?></textarea>
-            <iframe id="tyrads_iframe" src="<?php echo htmlspecialchars($IFRAME_URL); ?>" height="650" width="300" frameborder="0" allowfullscreen style="display: block; margin: 0 auto; border-radius: 8px; border: 1px solid #e2e8f0;"></iframe>
+            
+            <h3 style="color: #4a5568; font-size: 1.1rem; margin-bottom: 16px;">Offerwall</h3>
+            <iframe id="tyrads_iframe" src="<?php echo htmlspecialchars($IFRAME_URL); ?>" height="650" width="300" frameborder="0" allowfullscreen style="display: block; margin: 0 auto 32px auto; border-radius: 8px; border: 1px solid #e2e8f0;"></iframe>
+            
+            <h3 style="color: #4a5568; font-size: 1.1rem; margin-bottom: 16px;">Premium Widget</h3>
+            <iframe id="tyrads_premium_iframe" src="<?php echo htmlspecialchars($IFRAME_PREMIUM_URL); ?>" height="400" width="300" frameborder="0" allowfullscreen style="display: block; margin: 0 auto; border-radius: 8px; border: 1px solid #e2e8f0;"></iframe>
         <?php else: ?>
             <h1 style="color: #e53e3e; font-size: 1.5rem; margin-bottom: 16px;">Error Loading SDK Iframe</h1>
             <p style="color: #4a5568; font-size: 1rem; margin-bottom: 16px;"><?php echo htmlspecialchars($error); ?></p>

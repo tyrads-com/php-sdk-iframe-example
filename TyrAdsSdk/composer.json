@@ -7,6 +7,6 @@
         }
     },
     "require": {
-        "tyrads/tyrads-sdk": "^0.3.0"
+        "tyrads/tyrads-sdk": "^0.4.0"
     }
 }
