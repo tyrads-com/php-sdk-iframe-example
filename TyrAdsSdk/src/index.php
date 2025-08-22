@@ -8,8 +8,8 @@ use Tyrads\TyradsSdk\TyrAdsSdk;
 $API_KEY           = "YOUR_API_KEY";      // Replace with your actual API key
 $API_SECRET        = "YOUR_API_SECRET";   // Replace with your actual API secret
 $LANGUAGE          = "en";
-$AGE               = 18;                  // Replace with actual age
-$GENDER            = 1;                   // 1 for male, 2 for female
+$AGE               = null;                  // (Optional) Replace with actual age
+$GENDER            = null;                  // (Optional) 1 for male, 2 for female
 $PUBLISHER_USER_ID = "PUBLISHER_USER_ID"; // Replace with actual publisher user ID
 
 $tyrAdsSdk = TyrAdsSdk::make($API_KEY, $API_SECRET, $LANGUAGE);
@@ -18,8 +18,10 @@ $error = "";
 try {
     $authRequest = new AuthenticationRequest(
         $PUBLISHER_USER_ID,
-        $AGE,
-        $GENDER
+        [
+            'age' => $AGE,
+            'gender' => $GENDER
+        ]
     );
     $authSign = $tyrAdsSdk->authenticate(
         $authRequest
